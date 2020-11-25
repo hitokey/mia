@@ -1,0 +1,19 @@
+(load "base.lisp")
+(load "old.lisp")
+
+(let ((ac '(((a5 m) (F# dim () 1))) ))
+
+  (equal (chord-amount *base*)
+	 (qtdes *base*))
+  
+  (equal (split-chord 1 *base*)
+	 (sepacc 1 *base*))
+  
+  (equal (split-chords *base*)
+	 (getacc *base*))
+  (equal (chord-chords ac)
+	 (accmp ac))
+	  
+  (equal (time-of-chord (caar *base*))
+	 (tac (caar *base*))))
+
