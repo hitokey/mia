@@ -1,10 +1,6 @@
-#+TITLE: Análise: Sistema de Compossição
+#+TITLE: Análise: Sistema MIA
 #+AUTHOR: Pedro Fernandes
 #+DATE: <2020-02-11 ter>
-
-* Análise de Código.
-
-Acredito que a estrutura do programa seja a seguinte:
 
 #+BEGIN_EXAMPLE
              -------  COMP.LSP ---------
@@ -18,9 +14,6 @@ Acredito que a estrutura do programa seja a seguinte:
 		  CONSULTA.LSP
 #+END_EXAMPLE
 
-
-
-** File [CONSULTA.LSP], análise das funções 
 
 É existe uma Variável que se fará presente quase em todas as operações, é *BMC*, que é a Base de Compassos, ela possui a seguinte estrutura:
 
