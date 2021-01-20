@@ -53,13 +53,41 @@
 (defun time-of-chord(chord)
   "Input acorde, ira retorna um lista de todos os tempos,
   para cada nota do acorde."
-  (if (null (cdr chord))
-      nil
+  (if (null (cdr chord)) nil
       (cons (cadar chord)
 	    (time-of-chord (cdr chord))) ))
 
 
 (defun time-of-beats(beats)
+  "Input um compasso, retorna uma lista com os
+   tempo do compasso."
   (if (null beats) nil
       (append (time-of-chord (car beats))
 	      (time-of-beats (cdr beats))) ))
+
+
+(defun exist-beats(beats &optional (ls *btc*))
+  "Input time do compasso, verifica se o campasso de entrada
+   existe na lista de entrada, por default a lista e btc"
+  (cond ((null ls) nil)
+	((equal beats (caar ls)) t)
+	(t (exist-beats beats (cdr ls)) ))) 
+
+
+(defun types-of-beats(type &optional (n 1))
+  (cond ((null (select-the-nth n)) nil)
+	((equal type (time-of-beats (select-the-nth n)))
+	 (cons n (types-of-beats type (+ n 1)) ))
+	(t (types-of-beats type (+ n 1)) )))
+
+
+(defun make-btc(ls)
+  (let ((aux (time-of-beats (car ls)) ))
+    (cond ((null ls) t)
+	  ((exist-beats aux *btc*) (make-btc (cdr ls)))
+	  (t (setq *btc* (cons (list aux (types-of-beats aux 1)) *btc*))
+	     (make-btc (cdr ls)) ))))
+
+(defun make-bctc(ls)
+  (cond ((null ls) nil)
+	((equal (car ls) (s

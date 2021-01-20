@@ -71,3 +71,13 @@
   (if (null c) '()
       (append (tac (car c))
 	      (tcmp (cdr c)) )))
+
+(defun existe (c l)
+  (cond ((null l) '())
+	((equal c (caar L)) 'T)
+	(t (existe c (cdr l))) ))
+
+(defun tpcmp (tempo n)
+  (cond ((null (mc n)) '())
+	((equal tempo (tcmp (mc n))) (cons n (tpcmp tempo (+ n 1))) )
+	(t (tpcmp tempo (+ n 1))) ))

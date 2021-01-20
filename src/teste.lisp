@@ -16,3 +16,6 @@
 (equal (time-of-chord (caar *base*))
        (tac (caar *base*)))
 
+
+(equal (types-of-beats (car *base*))
+       (tpcmp (car *base*) 1))
